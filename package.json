@@ -1,0 +1,71 @@
+{
+  "name": "next-twa",
+  "version": "1.0.0",
+  "description": "Telegram WebApp and NextJS",
+  "source": "./src/index.ts",
+  "type": "module",
+  "keywords": [
+    "react",
+    "telegram",
+    "telegram-webapp",
+    "telegram-bot",
+    "twa",
+    "next",
+    "nextjs"
+  ],
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "require": "./dist/next-twa.cjs",
+    "default": "./dist/next-twa.modern.js"
+  },
+  "files": [
+    "/dist"
+  ],
+  "main": "dist/next-twa.cjs",
+  "module": "dist/next-twa.module.js",
+  "unpkg": "dist/next-twa.umd.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf ./dist/*; microbundle build --sourcemap=false && cp -R src/core/twa-types.ts dist/core/twa-types",
+    "dev": "npm run build && microbundle watch --compress=false",
+    "changeset": "changeset",
+    "docs": "typedoc && prettier --write ./docs",
+    "release": "npm run build && changeset publish",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demark-pro/next-twa.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Davydkin Mark me@maark.ru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/demark-pro/next-twa/issues"
+  },
+  "homepage": "https://github.com/demark-pro/next-twa#readme",
+  "devDependencies": {
+    "@changesets/cli": "^2.25.2",
+    "@types/react": "^18",
+    "microbundle": "^0.15.1",
+    "prettier": "2.8.0",
+    "typedoc": "^0.24.8",
+    "typedoc-plugin-markdown": "^3.15.3",
+    "typescript": "^5.1.6"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "^13"
+  },
+  "lint-staged": {
+    "*.(tsx|ts)": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
+  }
+}

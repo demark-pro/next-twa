@@ -1,6 +1,6 @@
 {
   "name": "next-twa",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Telegram WebApp and NextJS",
   "source": "./src/index.ts",
   "type": "module",

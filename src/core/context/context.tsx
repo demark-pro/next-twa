@@ -1,4 +1,9 @@
-import { createContext, PropsWithChildren, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  PropsWithChildren,
+  useEffect,
+  useState,
+} from 'react';
 import { WebApp } from '../twa-types';
 import { usePathname, useRouter } from 'next/navigation';
 

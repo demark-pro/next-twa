@@ -44,13 +44,13 @@ export const MyComponent = () => {
 };
 ```
 
-### WebHooks
+### Hooks
 
 `useNextTWA(): UseNextTWAReturn` - Main hook for the app
 
 `useTelegramInitData(): WebAppInitData` - Hook to get the initial data from the Telegram Web Apps API already parsed.
 
-### Basic Example
+## Example
 
 ```js
 'use client';
@@ -108,3 +108,7 @@ export default function Home() {
   );
 }
 ```
+
+## TODO
+
+- Add Tests

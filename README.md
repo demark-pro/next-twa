@@ -1,4 +1,4 @@
-# Telegram WebApp and NextJS
+# Telegram WebApp for NextJS
 
 A simple and efficient npm package to integrate Telegram Web Apps into your Next.js applications. This package provides seamless access to Telegram's API, enabling you to create interactive web experiences directly inside Telegram.
 

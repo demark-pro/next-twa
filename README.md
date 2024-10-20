@@ -66,7 +66,7 @@ const App = () => {
         {initData &&
           Object.entries(initData).map(([key, value]) => (
             <p key={key}>
-              {key}: {JSON.parse(value)}
+              {key}: {JSON.stringify(value)}
             </p>
           ))}
       </p>

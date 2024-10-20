@@ -3,7 +3,7 @@
 import { NextTWAProvider, useNextTWA } from 'next-twa';
 
 const App = () => {
-  const { app } = useNextTWA();
+  const app = useNextTWA();
 
   console.log(app);
   return <div></div>;
@@ -11,7 +11,12 @@ const App = () => {
 
 export default function Home() {
   return (
-    <NextTWAProvider>
+    <NextTWAProvider
+      onStartApp={startParam => {
+        return 'test';
+      }}
+      useBackButton={true}
+    >
       <App />
     </NextTWAProvider>
   );

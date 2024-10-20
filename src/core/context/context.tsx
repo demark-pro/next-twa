@@ -21,8 +21,17 @@ export type NextTWAProviderProps = PropsWithChildren & {
 };
 
 export type UseNextTWAReturn = {
+  /**
+   * Telegram Web App
+   */
   app?: WebApp;
+  /**
+   * value returned onStartApp
+   */
   startAppValue?: any;
+  /**
+   * True when app is initialized and startAppValue is ready (If onStartApp is passed to NextTWAProviderProvider)
+   */
   isReady: boolean;
 };
 

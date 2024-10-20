@@ -1058,7 +1058,7 @@ interface BiometricAuthenticateParams {
  * This object contains data that is transferred to the Web App when it is
  * opened. It is empty if the Web App was launched from a keyboard button.
  */
-interface WebAppInitData {
+export interface WebAppInitData {
   /**
    * A unique identifier for the Web App session, required for sending
    * messages via the answerWebAppQuery method.

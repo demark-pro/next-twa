@@ -12,11 +12,16 @@ export type NextTWAProviderReturn = {
   app?: WebApp;
 };
 
-export type NextTWAProviderProps = PropsWithChildren;
+export type NextTWAProviderProps = PropsWithChildren & {
+  onStartParam?: (start_param?: string) => void;
+};
 
 export const WebAppContext = createContext<NextTWAProviderReturn>({});
 
-export const NextTWAProvider = ({ children }: NextTWAProviderProps) => {
+export const NextTWAProvider = ({
+  children,
+  onStartParam,
+}: NextTWAProviderProps) => {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -27,6 +32,8 @@ export const NextTWAProvider = ({ children }: NextTWAProviderProps) => {
 
     const twa = getWebAppFromGlobal();
     setApp(twa);
+
+    if (twa && onStartParam) onStartParam(twa.initDataUnsafe.start_param);
     if (twa?.ready) twa.ready();
   }, []);
 

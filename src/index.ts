@@ -2,6 +2,7 @@ export {
   NextTWAProvider,
   NextTWAProviderProps,
   UseNextTWAReturn,
+  OnStartAppHandler,
 } from './core/context/context';
 export { useNextTWA } from './core/context/use-next-twa';
 export { useTelegramInitData } from './core/context/use-telegram-init-data';

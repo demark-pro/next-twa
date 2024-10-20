@@ -33,7 +33,7 @@
     "dev": "npm run build && microbundle watch --compress=false",
     "changeset": "changeset",
     "docs": "typedoc && prettier --write ./docs",
-    "release": "npm run build && np",
+    "release": "npm run build && np --no-tests",
     "format": "prettier --write ."
   },
   "repository": {

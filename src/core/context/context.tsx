@@ -8,34 +8,51 @@ import { WebApp } from '../twa-types';
 import { usePathname, useRouter } from 'next/navigation';
 import { getWebAppFromGlobal } from '../../utils';
 
-export type NextTWAProviderReturn = {
-  app?: WebApp;
+type StartAppType = {
+  finished: boolean;
+  value: any;
 };
 
+export type OnStartAppHandler = (startParams?: string) => ReturnType<any>;
+
 export type NextTWAProviderProps = PropsWithChildren & {
-  onStartParam?: (start_param?: string) => void;
+  onStartApp?: OnStartAppHandler;
   useBackButton?: boolean;
 };
 
-export const WebAppContext = createContext<NextTWAProviderReturn>({});
+export type UseNextTWAReturn = {
+  app?: WebApp;
+  startAppValue?: any;
+  isReady: boolean;
+};
+
+export const webAppContext = createContext<UseNextTWAReturn>({
+  isReady: false,
+});
 
 export const NextTWAProvider = ({
   children,
-  onStartParam,
+  onStartApp,
   useBackButton = true,
 }: NextTWAProviderProps) => {
   const pathname = usePathname();
   const router = useRouter();
 
   const [app, setApp] = useState<WebApp>();
+  const [startApp, setStartApp] = useState<StartAppType>({
+    finished: false,
+    value: null,
+  });
 
   useEffect(() => {
     if (app) return;
 
     const twa = getWebAppFromGlobal();
     setApp(twa);
-
-    if (twa && onStartParam) onStartParam(twa.initDataUnsafe.start_param);
+    setStartApp({
+      finished: true,
+      value: onStartApp ? onStartApp(twa?.initDataUnsafe.start_param) : null,
+    });
     if (twa?.ready) twa.ready();
   }, []);
 
@@ -60,8 +77,14 @@ export const NextTWAProvider = ({
     };
   }, [pathname, app]);
 
+  const isReady = !!app?.version && startApp.finished;
+
   return (
-    <WebAppContext.Provider value={{ app }}>{children}</WebAppContext.Provider>
+    <webAppContext.Provider
+      value={{ app, startAppValue: startApp.value, isReady }}
+    >
+      {children}
+    </webAppContext.Provider>
   );
 };
 

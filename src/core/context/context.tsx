@@ -6,6 +6,7 @@ import React, {
 } from 'react';
 import { WebApp } from '../twa-types';
 import { usePathname, useRouter } from 'next/navigation';
+import { getWebAppFromGlobal } from '../../utils';
 
 export type NextTWAProviderReturn = {
   app?: WebApp;
@@ -22,12 +23,12 @@ export const NextTWAProvider = ({ children }: NextTWAProviderProps) => {
   const [app, setApp] = useState<WebApp>();
 
   useEffect(() => {
-    if (app || typeof window === 'undefined') return;
+    if (app) return;
 
-    const twa = window?.Telegram?.WebApp as WebApp;
+    const twa = getWebAppFromGlobal();
     setApp(twa);
     if (twa?.ready) twa.ready();
-  }, [app]);
+  }, []);
 
   useEffect(() => {
     if (!app) return;

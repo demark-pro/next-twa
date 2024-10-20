@@ -14,6 +14,7 @@ export type NextTWAProviderReturn = {
 
 export type NextTWAProviderProps = PropsWithChildren & {
   onStartParam?: (start_param?: string) => void;
+  useBackButton?: boolean;
 };
 
 export const WebAppContext = createContext<NextTWAProviderReturn>({});
@@ -21,6 +22,7 @@ export const WebAppContext = createContext<NextTWAProviderReturn>({});
 export const NextTWAProvider = ({
   children,
   onStartParam,
+  useBackButton = true,
 }: NextTWAProviderProps) => {
   const pathname = usePathname();
   const router = useRouter();
@@ -38,7 +40,7 @@ export const NextTWAProvider = ({
   }, []);
 
   useEffect(() => {
-    if (!app) return;
+    if (!app || !useBackButton) return;
 
     const BackButton = app.BackButton;
     if (pathname === '/') {

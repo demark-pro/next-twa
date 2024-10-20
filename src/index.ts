@@ -4,4 +4,5 @@ export {
   UseNextTWAReturn,
 } from './core/context/context';
 export { useNextTWA } from './core/context/use-next-twa';
-export { WebApp } from './core/twa-types';
+export { useTelegramInitData } from './core/context/use-telegram-init-data';
+export { WebApp, WebAppInitData } from './core/twa-types';

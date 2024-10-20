@@ -25,9 +25,6 @@
   "module": "dist/next-twa.module.js",
   "unpkg": "dist/next-twa.umd.js",
   "types": "dist/index.d.ts",
-  "np": {
-    "contents": "dist"
-  },
   "scripts": {
     "build": "rm -rf ./dist/*; microbundle build --sourcemap=false && cp -R src/core/twa-types.ts dist/core/twa-types",
     "dev": "npm run build && microbundle watch --compress=false",

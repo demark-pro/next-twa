@@ -47,7 +47,10 @@ export default function Home() {
   };
 
   return (
-    <NextTWAProvider onStartApp={handleStartApp} useBackButton={true}>
+    <NextTWAProvider
+      // onStartApp={handleStartApp}
+      useBackButton={true}
+    >
       <App />
     </NextTWAProvider>
   );

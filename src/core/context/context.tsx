@@ -88,6 +88,10 @@ export const NextTWAProvider = ({
 
   const isReady = !!app?.version && startApp.finished;
 
+  console.log('app - ', app);
+  console.log('startApp - ', startApp);
+  console.log('isReady - ', isReady);
+
   return (
     <webAppContext.Provider
       value={{ app, startAppValue: startApp.value, isReady }}

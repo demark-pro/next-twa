@@ -1,4 +1,3 @@
-'use client';
 import React, {
   createContext,
   PropsWithChildren,
@@ -58,6 +57,8 @@ export const NextTWAProvider = ({
     if (app) return;
 
     const twa = getWebAppFromGlobal();
+    console.log('twa - ', twa);
+
     setApp(twa);
     setStartApp({
       finished: true,
@@ -88,10 +89,6 @@ export const NextTWAProvider = ({
   }, [pathname, app]);
 
   const isReady = !!app?.version && startApp.finished;
-
-  console.log('app - ', app);
-  console.log('startApp - ', startApp);
-  console.log('isReady - ', isReady);
 
   return (
     <webAppContext.Provider

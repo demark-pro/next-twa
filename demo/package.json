@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "next": "14.2.15",
-    "next-twa": "^1.1.0",
+    "next-twa": "^1.1.1",
     "react": "^18",
     "react-dom": "^18"
   },

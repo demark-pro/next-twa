@@ -9,12 +9,13 @@ export default function Home() {
     <div>
       <p>isReady: {isReady ? 'true' : 'false'}</p>
       <p>
-        {initData &&
-          Object.entries(initData).map(([key, value]) => (
-            <p key={key}>
-              {key}: {JSON.stringify(value)}
-            </p>
-          ))}
+        {initData
+          ? Object.entries(initData).map(([key, value]) => (
+              <p key={key}>
+                {key}: {JSON.stringify(value)}
+              </p>
+            ))
+          : 'initData is empty'}
       </p>
       <button
         onClick={() => {

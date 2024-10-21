@@ -8,6 +8,7 @@ export default function Home() {
   return (
     <div>
       <p>isReady: {isReady ? 'true' : 'false'}</p>
+      <p>startAppValue: {JSON.stringify(startAppValue)}</p>
       <p>
         {initData
           ? Object.entries(initData).map(([key, value]) => (

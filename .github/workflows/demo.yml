@@ -61,7 +61,7 @@ jobs:
             
       - name: Install dependencies and build
         working-directory: './demo'
-        run: npm install && npm run build && touch ./out/.nojekyll
+        run: npm install && npm run build
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

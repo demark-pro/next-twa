@@ -10,7 +10,7 @@ A simple and efficient npm package to integrate Telegram Web Apps into your Next
 
 ## Live Demo
 
-Telegram Bot [@nexttwa_bot](https://t.me/nexttwa_bot/app)
+Telegram Bot [@nexttwa_bot](https://t.me/nexttwa_bot/app) (in development)
 
 ## Getting started
 

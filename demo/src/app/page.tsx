@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <div>
-      <p>StartAppValue: {startAppValue}</p>
+      {/* <p>StartAppValue: {startAppValue}</p> */}
       <p>
         {initData &&
           Object.entries(initData).map(([key, value]) => (

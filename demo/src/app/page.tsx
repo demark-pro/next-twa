@@ -5,11 +5,9 @@ export default function Home() {
   const { isReady, app, startAppValue } = useNextTWA();
   const initData = useTelegramInitData();
 
-  if (!isReady) return <p>Loading...</p>;
-
   return (
     <div>
-      {/* <p>StartAppValue: {startAppValue}</p> */}
+      <p>isReady: {isReady ? 'true' : 'false'}</p>
       <p>
         {initData &&
           Object.entries(initData).map(([key, value]) => (

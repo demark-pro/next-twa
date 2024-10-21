@@ -1,12 +1,7 @@
 'use client';
-import {
-  NextTWAProvider,
-  useNextTWA,
-  OnStartAppHandler,
-  useTelegramInitData,
-} from 'next-twa';
+import { useNextTWA, useTelegramInitData } from 'next-twa';
 
-const App = () => {
+export default function Home() {
   const { isReady, app, startAppValue } = useNextTWA();
   const initData = useTelegramInitData();
 
@@ -31,27 +26,5 @@ const App = () => {
         Show Alert
       </button>
     </div>
-  );
-};
-
-export default function Home() {
-  const handleStartApp: OnStartAppHandler = startParam => {
-    if (startParam) {
-      // Do something. redirect or extract data from `start_param`
-      // The returned value will be written to `startAppValue`.
-
-      return { foo: 'bar' };
-    }
-
-    return 'string or anything';
-  };
-
-  return (
-    <NextTWAProvider
-      // onStartApp={handleStartApp}
-      useBackButton={true}
-    >
-      <App />
-    </NextTWAProvider>
   );
 }

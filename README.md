@@ -115,4 +115,5 @@ export default function Home() {
 
 ## TODO
 
+- Add Docs
 - Add Tests
